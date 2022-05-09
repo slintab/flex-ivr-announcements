@@ -1,0 +1,21 @@
+{
+  "name": "ivr-announcements",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "postinstall": "flex-plugin pre-script-check"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.3.3",
+    "@twilio/flex-plugin-scripts": "5.0.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-emotion": "9.2.12",
+    "twilio-sync": "^3.1.0"
+  },
+  "devDependencies": {
+    "@twilio/flex-ui": "^1",
+    "prettier": "^2.6.2",
+    "react-test-renderer": "16.5.2"
+  }
+}
