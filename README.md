@@ -8,6 +8,7 @@ This repository contains the code for a Twilio Flex plugin for publishing IVR an
 * [Repository structure](#structure)
 * [Setup](#setup)
 * [Design](#design)
+* [Demo](#demo)
 * [Maintainer](#maintainer)
 
 ## Structure
@@ -58,6 +59,9 @@ The solution contains for main building blocks:
 
 The central piece to this solution is the Sync document in the middle, which contains the current announcement. On one side, there are the agents in Flex updating the announcement via a flex plugin. On the other side, there is an IVR flow in Studio reading and playing the announcement from the Sync document.
 
+
+## Demo
+![Demo](demo.jpg?raw=true)
 
 ## Maintainer
 Thanks for reading this far!
