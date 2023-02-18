@@ -1,9 +1,9 @@
 var appConfig = {
   pluginService: {
     enabled: true,
-    url: '/plugins',
+    url: "/plugins",
   },
   ytica: false,
-  logLevel: 'info',
+  logLevel: "info",
   showSupervisorDesktopView: true,
 };

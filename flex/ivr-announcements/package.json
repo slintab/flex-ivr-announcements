@@ -6,16 +6,16 @@
     "postinstall": "flex-plugin pre-script-check"
   },
   "dependencies": {
-    "@material-ui/core": "^4.3.3",
-    "@twilio/flex-plugin-scripts": "5.0.6",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-emotion": "9.2.12",
-    "twilio-sync": "^3.1.0"
+    "@twilio-paste/core": "^15.1.0",
+    "@twilio-paste/icons": "^9.0.0",
+    "@twilio/flex-plugin-scripts": "6.0.3",
+    "prop-types": "^15.7.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "use-uid": "^1.0.0"
   },
   "devDependencies": {
-    "@twilio/flex-ui": "^1",
-    "prettier": "^2.6.2",
-    "react-test-renderer": "16.5.2"
+    "@twilio/flex-ui": "2.1.0",
+    "react-test-renderer": "17.0.2"
   }
 }

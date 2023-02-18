@@ -1,10 +1,9 @@
 import React from "react";
-import { VERSION, NotificationType, Notifications } from "@twilio/flex-ui";
 import { FlexPlugin } from "@twilio/flex-plugin";
+import { NotificationType, Notifications } from "@twilio/flex-ui";
 import { SyncClient } from "twilio-sync";
 
-import reducers, { namespace } from "./states";
-import Announcement from "./components/announcement/announcement";
+import Announcement from "./components/Announcement";
 import config from "./config";
 
 const PLUGIN_NAME = "IvrAnnouncementsPlugin";
@@ -19,11 +18,8 @@ export default class IvrAnnouncementsPlugin extends FlexPlugin {
    * Use this to modify any UI components or attach to the actions framework
    *
    * @param flex { typeof import('@twilio/flex-ui') }
-   * @param manager { import('@twilio/flex-ui').Manager }
    */
   async init(flex, manager) {
-    this.registerReducers(manager);
-
     const createSyncClient = async () => {
       const body = {
         Token: manager.store.getState().flex.session.ssoTokenPayload.token,
@@ -62,22 +58,5 @@ export default class IvrAnnouncementsPlugin extends FlexPlugin {
     );
 
     Notifications.showNotification("ivrAnnouncement", null);
-  }
-
-  /**
-   * Registers the plugin reducers
-   *
-   * @param manager { Flex.Manager }
-   */
-  registerReducers(manager) {
-    if (!manager.store.addReducer) {
-      // eslint-disable-next-line
-      console.error(
-        `You need FlexUI > 1.9.0 to use built-in redux; you are currently on ${VERSION}`
-      );
-      return;
-    }
-
-    manager.store.addReducer(namespace, reducers);
   }
 }
