@@ -58,7 +58,7 @@ resource "twilio_serverless_function" "token" {
 resource "twilio_serverless_function" "announcement" {
   service_sid   = twilio_serverless_service.service.sid
   friendly_name = "announcement"
-  source           = "../../../functions/announcement.js"
+  source           = "../../../functions/announcement.protected.js"
   content_type      = "application/javascript"
   path              = "/announcement"
   visibility        = "protected"

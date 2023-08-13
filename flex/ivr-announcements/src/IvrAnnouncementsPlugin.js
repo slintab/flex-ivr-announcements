@@ -2,11 +2,11 @@ import React from "react";
 import { FlexPlugin } from "@twilio/flex-plugin";
 import { NotificationType, Notifications } from "@twilio/flex-ui";
 import { SyncClient } from "twilio-sync";
-
 import Announcement from "./components/Announcement";
-import config from "./config";
 
 const PLUGIN_NAME = "IvrAnnouncementsPlugin";
+const SYNC_TOKEN_URL = process.env.FLEX_APP_SYNC_TOKEN_URL;
+const SYNC_DOC_NAME = process.env.FLEX_APP_SYNC_DOC_NAME;
 
 export default class IvrAnnouncementsPlugin extends FlexPlugin {
   constructor() {
@@ -33,7 +33,7 @@ export default class IvrAnnouncementsPlugin extends FlexPlugin {
         },
       };
 
-      const resp = await fetch(config.SYNC_TOKEN_URL, options);
+      const resp = await fetch(SYNC_TOKEN_URL, options);
       const result = await resp.json();
 
       return new SyncClient(result.token);
@@ -51,10 +51,7 @@ export default class IvrAnnouncementsPlugin extends FlexPlugin {
     const notification =
       Notifications.registeredNotifications.get("ivrAnnouncement");
     notification.content = (
-      <Announcement
-        syncClient={syncClient}
-        syncDocName={config.SYNC_DOC_NAME}
-      />
+      <Announcement syncClient={syncClient} syncDocName={SYNC_DOC_NAME} />
     );
 
     Notifications.showNotification("ivrAnnouncement", null);

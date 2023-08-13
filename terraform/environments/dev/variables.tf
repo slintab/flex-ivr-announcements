@@ -1,13 +1,13 @@
 variable "SYNC_SERVICE_NAME" {
   type        = string
   description = "Name of Sync Service to contain the announcement."
-  default = "flex-ivr-announcements-test"
+  default = "flex-ivr-announcements"
 }
 
 variable "DOCUMENT_NAME" {
   type        = string
   description = "Name of the Sync Document to contain the announcement."
-  default = "flex-ivr-announcement-test"
+  default = "flex-ivr-announcement"
 }
 
 variable "TWILIO_ACCOUNT_SID" {
