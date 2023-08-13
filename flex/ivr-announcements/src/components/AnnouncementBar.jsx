@@ -13,7 +13,7 @@ const AnnouncementBar = ({ message, modalOpenHandler }) => {
       alignItems="center"
     >
       <Text as="p" fontSize="fontSize30">
-        {message ? message : " No active IVR announcement."}
+        IVR Announcement: {message ? message : "No active IVR announcement."}
       </Text>
       <Button variant="secondary" size="small" onClick={modalOpenHandler}>
         Update
