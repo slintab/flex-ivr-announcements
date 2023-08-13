@@ -40,9 +40,10 @@ The easiest way to deploy this application is by using the provided Terraform co
         - `STUDIO_FLOW`
  
 2. ***Deploy the Flex plugin:***
-   1. Open `/flex/ivr-announcements/src/config.js` and set the configuration variables to the output values from the above step.
-   2. Deploy the flex plugin from `/flex/ivr-announcements` following the steps [here](https://www.twilio.com/docs/flex/developer/plugins/cli/deploy-and-release). Note that the plugin requires ***Flex 2.0***.
-   3. When ready, associate your Twilio Phone number with the Studio flow created with Terraform to start accepting calls with your IVR!
+   1. Navigate to the plugin directory: `cd flex/ivr-announcements`
+   2. Rename `.env.example` to `.env`, open it and set the environment variables to the output values of step 1.
+   3. Deploy the flex plugin from `/flex/ivr-announcements` following the steps [here](https://www.twilio.com/docs/flex/developer/plugins/cli/deploy-and-release). Note that the plugin requires ***Flex UI 2***.
+   4. When ready, associate your Twilio Phone number with the Studio flow created with Terraform to start accepting calls with your IVR!
 
 
 ## Design
