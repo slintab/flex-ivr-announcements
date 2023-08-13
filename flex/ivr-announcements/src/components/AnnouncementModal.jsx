@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SyncService from "../services/SyncService";
 
 import { Button } from "@twilio-paste/core/button";
 import {
@@ -13,31 +14,25 @@ import { Input } from "@twilio-paste/core/input";
 import { Label } from "@twilio-paste/core/label";
 import { Paragraph } from "@twilio-paste/core";
 
-const AnnouncementModal = ({
-  syncClient,
-  syncDocName,
-  open,
-  modalCloseHandler,
-}) => {
+const AnnouncementModal = ({ open, modalCloseHandler }) => {
   const [newMessage, setNewMessage] = useState("");
   const modalHeadingID = "modal";
 
   const handleChange = (event) => setNewMessage(event.target.value);
 
-  const updateAnnouncement = async (client, doc, message) => {
-    const syncDoc = await client.document(doc);
-    const content = syncDoc.data;
-
-    content.announcement = message;
-
-    syncDoc.update(content);
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     modalCloseHandler();
-    updateAnnouncement(syncClient, syncDocName, newMessage);
+    updateAnnouncement(newMessage);
+  };
+
+  const updateAnnouncement = async (message) => {
+    const result = await SyncService.updateDocument(message);
+    
+    if (!result) {
+      console.log("Error updating announcement.");
+    }
   };
 
   return (
