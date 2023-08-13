@@ -1,10 +1,13 @@
 import React from "react";
+import { Manager } from "@twilio/flex-ui";
 
 import { Text } from "@twilio-paste/core/text";
 import { Box } from "@twilio-paste/core/box";
 import { Button } from "@twilio-paste/core/button";
 
 const AnnouncementBar = ({ message, modalOpenHandler }) => {
+  const isAgent = Manager.getInstance().user.roles.includes("agent");
+
   return (
     <Box
       display="inline-flex"
@@ -15,9 +18,11 @@ const AnnouncementBar = ({ message, modalOpenHandler }) => {
       <Text as="p" fontSize="fontSize30">
         IVR Announcement: {message ? message : "No active IVR announcement."}
       </Text>
-      <Button variant="secondary" size="small" onClick={modalOpenHandler}>
-        Update
-      </Button>
+      {!isAgent && (
+        <Button variant="secondary" size="small" onClick={modalOpenHandler}>
+          Update
+        </Button>
+      )}
     </Box>
   );
 };
